@@ -1,3 +1,4 @@
+import { Link, Route, Routes } from "react-router-dom";
 import "./App.css";
 import Nav from "./components/Context/Nav";
 import EventIssues from "./components/Events/EventIssues";
@@ -12,6 +13,8 @@ import Fruit from "./components/Props-children/Fruit";
 import PropsDrilling from "./components/PropsDrilling/PropsDrilling";
 import logo from "./logo.svg";
 import React, { useState } from "react";
+import HomePage from "./HomePage";
+import About from "./About";
 
 function Logo() {
   const userImg = (
@@ -52,11 +55,30 @@ function Logo() {
 //   );
 // }
 
+// export const Context = React.createContext();
+// function App() {
+//   const [signedIn, setSignedIn] = useState(false);
+//   return (
+//     <Context.Provider value={[signedIn, setSignedIn]}>
+//       <Nav></Nav>
+//       <h1> {signedIn ? "Please Signed In" : "You can Signed Out"}</h1>
+//     </Context.Provider>
+//   );
+// }
+// export default App;
+
 export const Context = React.createContext();
 function App() {
   const [signedIn, setSignedIn] = useState(false);
   return (
     <Context.Provider value={[signedIn, setSignedIn]}>
+      <Link to="/">Home</Link>
+      <Link to="/about">About</Link>
+      <Routes>
+        <Route path="/" element={<HomePage />} />
+        <Route path="/about" element={<About />} />
+      </Routes>
+
       <Nav></Nav>
       <h1> {signedIn ? "Please Signed In" : "You can Signed Out"}</h1>
     </Context.Provider>
