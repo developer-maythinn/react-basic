@@ -1,7 +1,7 @@
 import React from "react";
-
+import myImg from "./assets/images/img1.webp";
 function About() {
-  return <div>About</div>;
+  return <img src={myImg} alt="" />;
 }
 
 export default About;

@@ -15,6 +15,7 @@ import logo from "./logo.svg";
 import React, { useState } from "react";
 import HomePage from "./HomePage";
 import About from "./About";
+import Hook from "./Hook";
 
 function Logo() {
   const userImg = (
@@ -74,9 +75,11 @@ function App() {
     <Context.Provider value={[signedIn, setSignedIn]}>
       <Link to="/">Home</Link>
       <Link to="/about">About</Link>
+      <Link to="/hook">Hook</Link>
       <Routes>
         <Route path="/" element={<HomePage />} />
         <Route path="/about" element={<About />} />
+        <Route path="/hook" element={<Hook />} />
       </Routes>
 
       <Nav></Nav>
